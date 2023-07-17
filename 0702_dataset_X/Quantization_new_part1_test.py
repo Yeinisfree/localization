@@ -451,7 +451,6 @@ K = np.array([[301.39596558, 0.0, 316.70672662],
                          [0.0, 0.0, 1.0]])
 cam_pos = [0.0, 0.0]
 
-
 # tracking
 track = tracking.Tracking()
 
