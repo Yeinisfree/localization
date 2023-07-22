@@ -256,9 +256,6 @@ class Tracking:
         elif(section == 3):
             translation = -t ### 확인 필요
             pose[1] += translation[0][0]
-        else:
-            translation = t ### 확인 필요
-            pose[0] += translation[0][0]
         
         
         return pose
@@ -273,11 +270,9 @@ class Tracking:
         if(section == 1):
             pose[1] += distance_mean[0]
         elif(section == 2):
-            pose[0] += distance_mean[0]
-        elif(section == 3):
-            pose[1] -= distance_mean[0]
-        elif(section == 4):
             pose[0] -= distance_mean[0]
+        elif(section == 3):
+            pose[1] += distance_mean[0]
 
         return pose, distance_mean
 

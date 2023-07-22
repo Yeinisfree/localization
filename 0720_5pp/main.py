@@ -366,7 +366,7 @@ def recalib(__db_imgs_list, __DB_idx_list, __cur_db_idx, __DBs_pose, img_q, cur_
         
     return __cur_loc_db, best_idx, new_tracking_pose, re, range_const, similar_loc_cnt, len(temp_good_matches)     
     
-def decision_axis(cur_db_idx, __section1, __section2, __section3, __ax):
+def decision_axis(cur_db_idx, __section1, __section2, __ax):
     ## __ax == 0 --> x-axis
     ## __ax == 1 --> y-axis
     
@@ -374,10 +374,8 @@ def decision_axis(cur_db_idx, __section1, __section2, __section3, __ax):
         __ax = 1
     elif(__section1 <= cur_db_idx and cur_db_idx <= __section2-1):
         __ax = 2
-    elif(__section2 <= cur_db_idx and cur_db_idx <= __section3-1):
-        __ax = 3
     else:
-        __ax = 4
+        __ax = 3
         
     return __ax
 
@@ -386,7 +384,7 @@ def decision_axis(cur_db_idx, __section1, __section2, __section3, __ax):
 
 ########## PATH ##########
 db_path = "/media/cgv/새 볼륨/rist_dataset/0720_re/DB/" # "/home/cgv/0621/ver1/92_re_rot/"
-qpath = "/media/cgv/새 볼륨/rist_dataset/0720_re/query_slow_0/" # "/media/cgv/새 볼륨/rist_dataset/6pp_test/230510/test" # "/media/cgv/새 볼륨/rist_dataset/6pp_test/230510/test" # "/home/cgv/upp/230410_part1_q/"
+qpath = "/media/cgv/새 볼륨/rist_dataset/0721/0721_slower/test" # "/media/cgv/새 볼륨/rist_dataset/6pp_test/230510/test" # "/media/cgv/새 볼륨/rist_dataset/6pp_test/230510/test" # "/home/cgv/upp/230410_part1_q/"
 save_path = "/home/cgv/0720_5pp/matching_result/"
 ##########################
 
@@ -591,7 +589,7 @@ for i in range(1, num_images):
 
     # recalibration이 되도 축 확인
     if(re == 1 or rot_suspectation == 1):
-        __ax = decision_axis(cur_db_idx, __section1, __section2, __section3, __ax)
+        __ax = decision_axis(cur_db_idx, __section1, __section2, __ax)
         
     # 회전 탐지되면 rt 초기화
     if(prev_ax != __ax):
